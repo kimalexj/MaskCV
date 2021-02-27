@@ -8,22 +8,22 @@ const AboutPage = () => {
         <div className="tabsWrapper">
           <Nav tabs>
             <NavItem>
-                <NavLink className={activeTab == '1' ? 'active' : 'defaultTab'} onClick={() => setActiveTab('1')}>
+                <NavLink className={activeTab === '1' ? 'active' : 'defaultTab'} onClick={() => setActiveTab('1')}>
                     Motivation
                 </NavLink>
             </NavItem>
             <NavItem>
-                <NavLink className={activeTab == '2' ? 'active' : 'defaultTab'} onClick={() => setActiveTab('2')}>
+                <NavLink className={activeTab === '2' ? 'active' : 'defaultTab'} onClick={() => setActiveTab('2')}>
                     Setup
                 </NavLink>
             </NavItem>
             <NavItem>
-                <NavLink className={activeTab == '3' ? 'active' : 'defaultTab'} onClick={() => setActiveTab('3')}>
+                <NavLink className={activeTab === '3' ? 'active' : 'defaultTab'} onClick={() => setActiveTab('3')}>
                     Data
                 </NavLink>
             </NavItem>
             <NavItem>
-                <NavLink className={activeTab == '4' ? 'active' : 'defaultTab'} onClick={() => setActiveTab('4')}>
+                <NavLink className={activeTab === '4' ? 'active' : 'defaultTab'} onClick={() => setActiveTab('4')}>
                     Techniques
                 </NavLink>
             </NavItem>

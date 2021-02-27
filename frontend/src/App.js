@@ -12,9 +12,10 @@ function App() {
       <div className="siteWrapper">
         <Navigation />
         <Route path="/" exact component={HomePage} />
-        <Route path="/About" exact component={AboutPage} />
-        <Route path="/Results" exact component={ResultsPage} />
-        <Route path="/Credits" exact component={CreditsPage} />
+        <Route path="/Home" component={HomePage} />
+        <Route path="/About" component={AboutPage} />
+        <Route path="/Results" component={ResultsPage} />
+        <Route path="/Credits" component={CreditsPage} />
       </div>
     </HashRouter>
   );

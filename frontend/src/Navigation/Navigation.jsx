@@ -12,7 +12,7 @@ import './Navigation.css';
 const Navigation = () => {
     return (
         <Navbar light expand="md" id="mainNav">
-            <NavbarBrand href="/">
+            <NavbarBrand href="#/Home">
                 <h2 className="headerStyle">MaskCV</h2>
             </NavbarBrand>
 

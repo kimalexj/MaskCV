@@ -12,3 +12,28 @@
   padding: 15px !important;
 }
 
+/* Container overrides */
+.container {
+  margin: 0 !important;
+}
+
+/* Navlink overrides */
+.nav-link {
+  cursor: pointer;
+}
+
+/* Classes used for pages that have tabs */
+
+.tabsWrapper {
+  padding: 20px;
+}
+
+.tabContentWrapper {
+  padding-top: 30px;
+}
+
+.defaultTab {
+  Font-Family: 'Open Sans', Sans-Serif;
+  color: #84bcb3;
+}
+

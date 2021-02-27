@@ -9,7 +9,7 @@ const HomePage = () => {
     return (
         <div>
             <Jumbotron className="jumbotronWrapper">
-                <FadeIn transitionDuration="1500" delay="80">
+                <FadeIn transitionDuration="1300" delay="60">
                     <h1 className="headerStyle mainTitle"> MaskCV </h1>
                     <h3 className="bodyStyle quoteText">"Wear a mask." - Dr. Anthony Fauci</h3>
                     <Button className="moreButton" href="#/About" size="lg" outline color="info">

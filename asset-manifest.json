@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/MaskCV/static/css/main.15534a69.chunk.css",
-    "main.js": "/MaskCV/static/js/main.b49b36b1.chunk.js",
-    "main.js.map": "/MaskCV/static/js/main.b49b36b1.chunk.js.map",
+    "main.css": "/MaskCV/static/css/main.a68cd606.chunk.css",
+    "main.js": "/MaskCV/static/js/main.bc795b43.chunk.js",
+    "main.js.map": "/MaskCV/static/js/main.bc795b43.chunk.js.map",
     "runtime-main.js": "/MaskCV/static/js/runtime-main.62c219de.js",
     "runtime-main.js.map": "/MaskCV/static/js/runtime-main.62c219de.js.map",
     "static/css/2.150d169a.chunk.css": "/MaskCV/static/css/2.150d169a.chunk.css",
-    "static/js/2.af9bf2c4.chunk.js": "/MaskCV/static/js/2.af9bf2c4.chunk.js",
-    "static/js/2.af9bf2c4.chunk.js.map": "/MaskCV/static/js/2.af9bf2c4.chunk.js.map",
+    "static/js/2.7e8a7edd.chunk.js": "/MaskCV/static/js/2.7e8a7edd.chunk.js",
+    "static/js/2.7e8a7edd.chunk.js.map": "/MaskCV/static/js/2.7e8a7edd.chunk.js.map",
     "index.html": "/MaskCV/index.html",
     "static/css/2.150d169a.chunk.css.map": "/MaskCV/static/css/2.150d169a.chunk.css.map",
-    "static/css/main.15534a69.chunk.css.map": "/MaskCV/static/css/main.15534a69.chunk.css.map",
-    "static/js/2.af9bf2c4.chunk.js.LICENSE.txt": "/MaskCV/static/js/2.af9bf2c4.chunk.js.LICENSE.txt",
+    "static/css/main.a68cd606.chunk.css.map": "/MaskCV/static/css/main.a68cd606.chunk.css.map",
+    "static/js/2.7e8a7edd.chunk.js.LICENSE.txt": "/MaskCV/static/js/2.7e8a7edd.chunk.js.LICENSE.txt",
     "static/media/maskface.86f45450.png": "/MaskCV/static/media/maskface.86f45450.png"
   },
   "entrypoints": [
     "static/js/runtime-main.62c219de.js",
     "static/css/2.150d169a.chunk.css",
-    "static/js/2.af9bf2c4.chunk.js",
-    "static/css/main.15534a69.chunk.css",
-    "static/js/main.b49b36b1.chunk.js"
+    "static/js/2.7e8a7edd.chunk.js",
+    "static/css/main.a68cd606.chunk.css",
+    "static/js/main.bc795b43.chunk.js"
   ]
 }

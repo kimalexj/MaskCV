@@ -24,7 +24,7 @@ const Navigation = () => {
                     <NavLink to="/Results" tag={RRNavLink}>Results</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink to="/Credits" tag={RRNavLink}>Credits</NavLink>
+                    <NavLink to="/Credits" tag={RRNavLink}>Team/Credits</NavLink>
                 </NavItem>
             </Nav>
             

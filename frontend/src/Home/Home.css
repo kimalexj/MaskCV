@@ -1,5 +1,6 @@
 .mainTitle {
     font-size: 100px;
+    font-weight: bold;
 }
 
 .jumbotronWrapper {
@@ -9,7 +10,7 @@
 }
 
 .quoteText {
-    font-size: 30px;
+    font-size: 28px;
     color: rgba(0,0,0,.5);
 }
 

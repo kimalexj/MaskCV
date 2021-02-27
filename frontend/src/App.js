@@ -1,4 +1,3 @@
-import './App.css';
 import { Route, HashRouter } from 'react-router-dom';
 import HomePage from './Home/Home';
 import CreditsPage from './Credits/Credits';
@@ -10,7 +9,7 @@ import Navigation from './Navigation/Navigation';
 function App() {
   return (
     <HashRouter>
-      <div>
+      <div className="siteWrapper">
         <Navigation />
         <Route path="/" exact component={HomePage} />
         <Route path="/About" exact component={AboutPage} />

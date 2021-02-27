@@ -14,7 +14,6 @@ const Navigation = () => {
         <Navbar light expand="md" id="mainNav">
             <NavbarBrand href="/">
                 <h2 className="headerStyle">MaskCV</h2>
-                
             </NavbarBrand>
 
             <Nav className="NavBlock bodyStyle" navbar>

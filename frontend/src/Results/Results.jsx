@@ -1,26 +1,47 @@
 import React, { useState } from 'react';
-import { Nav, NavItem, NavLink, TabContent, TabPane, Container, Row, Col } from 'reactstrap';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+import { Nav, NavItem, NavLink, TabContent, TabPane, Container, Row, Col, } from 'reactstrap';
+import Gallery from 'react-grid-gallery';
+
+import './Results.css';
 
 // Raw picture images
 import img_one from '../img/sample_raw/mask46.png';
 import img_two from '../img/sample_raw/mask91.png';
 import img_three from '../img/sample_raw/mask94.png';
+import img_four from '../img/sample_raw/mask492.png';
+
+// Test graph
+import test_graph from '../img/testgraph.png';
+
+const images = [
+    {
+        src: img_one,
+        thumbnail: img_one,
+        thumbnailWidth: 400,
+        thumbnailHeight: 226
+    },
+    {
+        src: img_two,
+        thumbnail: img_two,
+        thumbnailWidth: 400,
+        thumbnailHeight: 225
+    },
+    {
+        src: img_three,
+        thumbnail: img_three,
+        thumbnailWidth: 400,
+        thumbnailHeight: 226
+    },
+    {
+        src: img_four,
+        thumbnail: img_four,
+        thumbnailWidth: 301,
+        thumbnailHeight: 400
+    }
+]
 
 const ResultsPage = () => {
-    const images = [img_one, img_two, img_three]; // update this for more images
     const [activeTab, setActiveTab] = useState('1');
-
-    const carouselImages = (
-        images.map(img => {
-            return (
-                <div>
-                    <img src={img} alt="raw_mask_image"/>
-                </div>
-            )
-        })
-    )
 
     return (
         <Container>
@@ -29,22 +50,17 @@ const ResultsPage = () => {
                 <Nav tabs>
                     <NavItem>
                         <NavLink className={activeTab === '1' ? 'active' : 'defaultTab'} onClick={() => setActiveTab('1')}>
-                            Motivation
+                            Haar Classifier
                         </NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink className={activeTab === '2' ? 'active' : 'defaultTab'} onClick={() => setActiveTab('2')}>
-                            Setup
+                            VGG 16
                         </NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink className={activeTab === '3' ? 'active' : 'defaultTab'} onClick={() => setActiveTab('3')}>
-                            Data
-                        </NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink className={activeTab === '4' ? 'active' : 'defaultTab'} onClick={() => setActiveTab('4')}>
-                            Techniques
+                            VGG 19
                         </NavLink>
                     </NavItem>
                 </Nav>
@@ -53,26 +69,72 @@ const ResultsPage = () => {
                             <Container>
                                 <Row>
                                     <Col>
-                                        Text (Facts about mask wearing etc...)
-                                        Consequences of improper equipment
+                                        <img src={test_graph} alt="graph_image_one" width="600" height="400"/>
                                     </Col>
                                     <Col>
-                                        Images
+                                        <ul>
+                                            <li>Training Accuracy: </li>
+                                            <li>Testing Accuracy: </li>
+                                        </ul>
                                     </Col>
                                 </Row>
                             </Container>
                         </TabPane>
-                        <TabPane tabId="2">Tab 2 Content</TabPane>
-                        <TabPane tabId="3">Tab 3 Content</TabPane>
-                        <TabPane tabId="4">Tab 4 Content</TabPane>
+                        <TabPane tabId="2">
+                            <Container>
+                                <Row>
+                                    <Col>
+                                        <img src={test_graph} alt="graph_image_one" width="600" height="400"/>
+                                    </Col>
+                                    <Col>
+                                        <ul>
+                                            <li>Training Accuracy: </li>
+                                            <li>Testing Accuracy: </li>
+                                        </ul>
+                                    </Col>
+                                </Row>
+                            </Container>
+                        </TabPane>
+                        <TabPane tabId="3">
+                            <Container>
+                                <Row>
+                                    <Col>
+                                        <img src={test_graph} alt="graph_image_one" width="600" height="400"/>
+                                    </Col>
+                                    <Col>
+                                        <ul>
+                                            <li>Training Accuracy: </li>
+                                            <li>Testing Accuracy: </li>
+                                        </ul>
+                                    </Col>
+                                </Row>
+                            </Container>
+                        </TabPane>
                 </TabContent>
                 </div>
             </Row>
-            <Row>
-                <Carousel>
-                    {carouselImages}
-                </Carousel>
-            </Row>
+
+            <div className="galleryWrapper">
+                <Row>
+                    <Col sm="1"></Col>
+                    <Col sm="5">
+                        <h4 className="galleryTitle orig">Original</h4>
+                        <Gallery 
+                            backdropClosesModal={true}
+                            images={images}
+                        />
+                    </Col>
+                    <Col sm="1"></Col>
+                    <Col sm="5">
+                        <h4 className="galleryTitle process">Processed</h4>
+                        <Gallery 
+                            backdropClosesModal={true}
+                            images={images}
+                        />
+                    </Col>
+                </Row>
+            </div>
+            
         </Container>
     );
 }

@@ -1,0 +1,18 @@
+.galleryWrapper {
+    margin-top: 50px;
+}
+
+.galleryTitle {
+    font-family: 'Raleway', Sans-Serif;
+    font-weight: bold;
+}
+
+.orig {
+    border: 2px solid red;
+    width: 90px;
+}
+
+.process {
+    border: 2px solid lightgreen;
+    width: 122px;
+}

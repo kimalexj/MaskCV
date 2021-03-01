@@ -1,0 +1,22 @@
+.tabSubheader {
+    font-family: 'Raleway', Sans-Serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.listWrapper {
+    Font-Family: 'Open Sans', Sans-Serif;
+}
+
+.listEntry {
+    margin: 15px 0;
+}
+
+.statement {
+    Font-Family: 'Open Sans', Sans-Serif;
+    width: 60%;
+}
+
+.innerTab {
+    padding-left: 15px;
+}

@@ -11,7 +11,7 @@ Final project for CSE 455 at the University of Washington taught by professor Jo
 
 
 ## Resources
-
+- Kaggle link: https://www.kaggle.com/andrewmvd/face-mask-detection
 
 
 ## Collaborators

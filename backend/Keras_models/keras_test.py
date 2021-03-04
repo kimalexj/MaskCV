@@ -11,6 +11,13 @@ from keras.applications.vgg19 import VGG19
 import numpy as np
 import cv2
 
+# Remember to change all of the absolute paths to yours!
+# Test data pulled from: https://www.kaggle.com/tongpython/cat-and-dog
+# sudo python3 -m pip install (dependency name)
+# Dependencies needed: tensorflow, keras, pillow, python3
+# Create a folder to save your model under Keras_models (mkdir animal_model)
+
+
 # Predict on a single image (use openCV), will predict at the end
 animal_label = {0: 'Cat', 1: 'Dog'}
 sample_image = cv2.imread('/Users/alexjkim/Desktop/Projects/MaskCV/backend/Keras_models/data/Test/dogs/dog.4002.jpg')
@@ -20,18 +27,13 @@ sample_image = sample_image/255.0
 
 # Determine if model has already been trained (clean out animal_model to retrain)
 try: 
-    model = keras.models.load_model('./animal_model')
+    model = keras.models.load_model('./animal_model') # folder for stored model
     
     # Predict for single image
     animal_result = model.predict(sample_image)
     print(animal_result);
     print("Single image prediction: " + animal_label[animal_result.argmax()])
 except:
-
-    # Test data pulled from: https://www.kaggle.com/tongpython/cat-and-dog
-    # sudo python3 -m pip install (dependency name)
-    # Dependencies needed: tensorflow, keras, pillow, python3
-
     training_directory = './data/Train';
     testing_directory = './data/Test';
 

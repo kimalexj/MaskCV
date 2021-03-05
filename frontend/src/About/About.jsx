@@ -68,8 +68,8 @@ const AboutPage = () => {
                             <Col sm="8">
                                 <h4 className="tabSubheader">Sources:</h4>
                                 <ul className="listWrapper">
-                                    <li className="listEntry"><a target="_blank" rel="noreferrer" href="https://www.kaggle.com/andrewmvd/face-mask-detection">Kaggle Training Data</a> (1)</li>
-                                    <li className="listEntry"><a target="_blank" rel="noreferrer" href="https://www.kaggle.com/spandanpatnaik09/face-mask-detectormask-not-mask-incorrect-mask">Kaggle Testing Data</a> (2)</li>
+                                    <li className="listEntry"><a target="_blank" rel="noreferrer" href="https://www.kaggle.com/andrewmvd/face-mask-detection">Kaggle Testing Data</a> (1)</li>
+                                    <li className="listEntry"><a target="_blank" rel="noreferrer" href="https://www.kaggle.com/spandanpatnaik09/face-mask-detectormask-not-mask-incorrect-mask">Kaggle Training Data</a> (2)</li>
                                     <li className="listEntry"><a target="_blank" rel="noreferrer" href="https://github.com/sightmachine/SimpleCV/tree/master/SimpleCV/Features/HaarCascades">Haar Cascade facial feature .xml files</a> (3)</li>
                                 </ul>
                                 <br />

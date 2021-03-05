@@ -11,7 +11,7 @@ nose_cascade = cv2.CascadeClassifier('xml_cascades/nose.xml')
 mouth_cascade = cv2.CascadeClassifier('xml_cascades/mouth.xml')
 
 # CHANGE pass in image with correct pwd
-img = cv2.imread('/Users/angelitosomera/Desktop/random.jpeg')
+img = cv2.imread('/Users/angelitosomera/Desktop/test.jpeg')
 img = cv2.cvtColor(img, cv2.IMREAD_GRAYSCALE)
 out_img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR) #colored output image
 

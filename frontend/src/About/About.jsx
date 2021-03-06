@@ -37,8 +37,9 @@ const AboutPage = () => {
                     <Container>
                         <Row>
                             <Col>
-                                Text (Facts about mask wearing etc...)
-                                Consequences of improper equipment
+                                <div>
+                                    <p></p>
+                                </div>
                             </Col>
                             <Col>
                                 Images

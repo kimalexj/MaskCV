@@ -50,16 +50,11 @@ const ResultsPage = () => {
                 <Nav tabs>
                     <NavItem>
                         <NavLink className={activeTab === '1' ? 'active' : 'defaultTab'} onClick={() => setActiveTab('1')}>
-                            Haar Classifier
-                        </NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink className={activeTab === '2' ? 'active' : 'defaultTab'} onClick={() => setActiveTab('2')}>
                             VGG 16
                         </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink className={activeTab === '3' ? 'active' : 'defaultTab'} onClick={() => setActiveTab('3')}>
+                        <NavLink className={activeTab === '2' ? 'active' : 'defaultTab'} onClick={() => setActiveTab('2')}>
                             VGG 19
                         </NavLink>
                     </NavItem>
@@ -81,21 +76,6 @@ const ResultsPage = () => {
                             </Container>
                         </TabPane>
                         <TabPane tabId="2">
-                            <Container>
-                                <Row>
-                                    <Col>
-                                        <img src={test_graph} alt="graph_image_one" width="600" height="400"/>
-                                    </Col>
-                                    <Col>
-                                        <ul>
-                                            <li>Training Accuracy: </li>
-                                            <li>Testing Accuracy: </li>
-                                        </ul>
-                                    </Col>
-                                </Row>
-                            </Container>
-                        </TabPane>
-                        <TabPane tabId="3">
                             <Container>
                                 <Row>
                                     <Col>

@@ -14,9 +14,39 @@
 
 .statement {
     Font-Family: 'Open Sans', Sans-Serif;
-    width: 60%;
+    width: 100%;
 }
 
 .innerTab {
     padding-left: 15px;
+}
+
+a.datalink {
+    color: lightskyblue !important;
+}
+
+.womanImage {
+    margin-top: 0px;
+    height: 50%;
+    margin-left: 20px;
+}
+
+.card-header {
+    padding: .5rem 1rem !important;
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+.card-text {
+    padding: .5rem 1rem;
+}
+
+.cardWrapper {
+    margin-left: 110px;
+}
+
+.singleCard {
+    margin-bottom: 30px;
 }

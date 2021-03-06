@@ -1,6 +1,7 @@
 .mainTitle {
     font-size: 100px;
     font-weight: bold;
+    margin-left: 60px;
 }
 
 .jumbotronWrapper {
@@ -12,6 +13,7 @@
 .quoteText {
     font-size: 28px;
     color: rgba(0,0,0,.5);
+    margin-top: -40px;
 }
 
 .moreButton {

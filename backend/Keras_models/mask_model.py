@@ -8,6 +8,7 @@ from keras.preprocessing import image
 from keras import Sequential
 from keras.layers import Flatten, Dense
 from keras.applications.vgg19 import VGG19
+import matplotlib.pyplot as plt
 import numpy as np
 import cv2
 

@@ -15,6 +15,7 @@
 /* Container overrides */
 .container {
   margin: 0 !important;
+  padding-right: 0 !important;
 }
 
 /* Navlink overrides */
@@ -32,8 +33,16 @@
   padding-top: 30px;
 }
 
+.active {
+  Font-Family: 'Open Sans', Sans-Serif;
+}
+
 .defaultTab {
   Font-Family: 'Open Sans', Sans-Serif;
   color: #84bcb3;
+}
+
+.defaultTab:hover {
+  color: black;
 }
 

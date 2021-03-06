@@ -1,30 +1,33 @@
 {
   "files": {
-    "main.css": "/MaskCV/static/css/main.7acbe3b2.chunk.css",
-    "main.js": "/MaskCV/static/js/main.6900ad35.chunk.js",
-    "main.js.map": "/MaskCV/static/js/main.6900ad35.chunk.js.map",
+    "main.css": "/MaskCV/static/css/main.a1bed669.chunk.css",
+    "main.js": "/MaskCV/static/js/main.560179fa.chunk.js",
+    "main.js.map": "/MaskCV/static/js/main.560179fa.chunk.js.map",
     "runtime-main.js": "/MaskCV/static/js/runtime-main.62c219de.js",
     "runtime-main.js.map": "/MaskCV/static/js/runtime-main.62c219de.js.map",
     "static/css/2.150d169a.chunk.css": "/MaskCV/static/css/2.150d169a.chunk.css",
-    "static/js/2.038de8c6.chunk.js": "/MaskCV/static/js/2.038de8c6.chunk.js",
-    "static/js/2.038de8c6.chunk.js.map": "/MaskCV/static/js/2.038de8c6.chunk.js.map",
+    "static/js/2.a4ab5565.chunk.js": "/MaskCV/static/js/2.a4ab5565.chunk.js",
+    "static/js/2.a4ab5565.chunk.js.map": "/MaskCV/static/js/2.a4ab5565.chunk.js.map",
     "index.html": "/MaskCV/index.html",
     "static/css/2.150d169a.chunk.css.map": "/MaskCV/static/css/2.150d169a.chunk.css.map",
-    "static/css/main.7acbe3b2.chunk.css.map": "/MaskCV/static/css/main.7acbe3b2.chunk.css.map",
-    "static/js/2.038de8c6.chunk.js.LICENSE.txt": "/MaskCV/static/js/2.038de8c6.chunk.js.LICENSE.txt",
+    "static/css/main.a1bed669.chunk.css.map": "/MaskCV/static/css/main.a1bed669.chunk.css.map",
+    "static/js/2.a4ab5565.chunk.js.LICENSE.txt": "/MaskCV/static/js/2.a4ab5565.chunk.js.LICENSE.txt",
     "static/media/coronaImage.68c45462.png": "/MaskCV/static/media/coronaImage.68c45462.png",
+    "static/media/flowdiagram.f9d0a439.png": "/MaskCV/static/media/flowdiagram.f9d0a439.png",
     "static/media/mask46.af3933bb.png": "/MaskCV/static/media/mask46.af3933bb.png",
     "static/media/mask492.65411aee.png": "/MaskCV/static/media/mask492.65411aee.png",
     "static/media/mask91.80cf2896.png": "/MaskCV/static/media/mask91.80cf2896.png",
     "static/media/mask94.83d8a49c.png": "/MaskCV/static/media/mask94.83d8a49c.png",
     "static/media/maskface.86f45450.png": "/MaskCV/static/media/maskface.86f45450.png",
-    "static/media/testgraph.873d5d13.png": "/MaskCV/static/media/testgraph.873d5d13.png"
+    "static/media/testgraph.873d5d13.png": "/MaskCV/static/media/testgraph.873d5d13.png",
+    "static/media/virus.38acd6a1.png": "/MaskCV/static/media/virus.38acd6a1.png",
+    "static/media/woman.f6184fa2.png": "/MaskCV/static/media/woman.f6184fa2.png"
   },
   "entrypoints": [
     "static/js/runtime-main.62c219de.js",
     "static/css/2.150d169a.chunk.css",
-    "static/js/2.038de8c6.chunk.js",
-    "static/css/main.7acbe3b2.chunk.css",
-    "static/js/main.6900ad35.chunk.js"
+    "static/js/2.a4ab5565.chunk.js",
+    "static/css/main.a1bed669.chunk.css",
+    "static/js/main.560179fa.chunk.js"
   ]
 }

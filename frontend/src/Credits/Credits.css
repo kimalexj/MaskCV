@@ -5,3 +5,22 @@
 .teamWrapper {
     padding-top: 20px;
 }
+
+.creditSubheader {
+    Font-Family: 'Raleway', Sans-Serif;
+    Font-Size: 25px;
+}
+
+.profilePic {
+    padding-right: 100px;
+}
+
+.name {
+    padding-top: 15px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.creditWrapper {
+    padding-top: 10px;
+}

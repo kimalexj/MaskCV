@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Nav, NavItem, NavLink, TabContent, TabPane, Container, Row, Col, Card, CardHeader, Button } from 'reactstrap';
+import FadeIn from 'react-fade-in';
 import maskImage from '../img/coronaImage.png';
 import flow from '../img/flowdiagram.png';
 import woman from '../img/woman.png';
+import sick from '../img/sick.png';
 import './About.css';
 
 const AboutPage = () => {
@@ -37,12 +39,39 @@ const AboutPage = () => {
                     <Container>
                         <Row>
                             <Col>
-                                <div>
-                                    <p></p>
-                                </div>
+                                <FadeIn transitionDuration="1300" delay="60">
+                                    <div>
+                                        <p className="motivQuote" style={{textDecoration: 'underline' }}>More than ever, we need to consider the risks associated with not wearing masks</p>
+                                    </div>
+                                    <div className="motivQuote">
+                                        <p>
+                                            "According to Johns Hopkins University, there have been more than 28.8 million cases of COVID-19
+                                            reported across the United States and more than 520,000 people have died from the virus."
+                                        </p>
+                                    </div>
+                                    <div className="motivQuote">
+                                        <p>
+                                            "As a result of COVID-19, the World Health Organization claims that nearly half of the 3.3
+                                            billion workers globaly have the potential to lose their livelihoods. This lack of income will
+                                            ultimately lead to an inability to support families."
+                                        </p>
+                                    </div>
+                                    <div className="motivQuote">
+                                        <p>
+                                            "A study published by <i>Health Affairs</i> concluded that mask mandates led to a slowdown in 
+                                            daily COVID-19 growth rate. After three weeks, the daily growth rate had dropped by almost 2 percent."
+                                        </p>
+                                    </div>
+                                    <div className="motivQuote">
+                                        <p>
+                                            "Infectious disease specialist Peter Chin-Hong alongside a group of scientists suggested in a simulation that
+                                            80% of the population wearing masks would make a larger impact on reducing COVID-19 than a lockdown.""
+                                        </p>
+                                    </div>
+                                </FadeIn>
                             </Col>
                             <Col>
-                                Images
+                                <img style={{paddingLeft: '40px'}} src={sick} />
                             </Col>
                         </Row>
                     </Container>
@@ -129,10 +158,11 @@ const AboutPage = () => {
                     <div className="innerTab">
                         <h4 className="tabSubheader">Algorithms:</h4>
                         <ul className="listWrapper">
-                            <li className="listEntry">Haar Cascade Face Detection</li>
+                            <li className="listEntry">Haar Cascade Face/Feature Detection</li>
                         </ul>
                         <br />
                         <h4 className="tabSubheader">Models:</h4>
+                        <h4 className="tabSubheader">Code:</h4>
                     </div>
                 </TabPane>
           </TabContent>

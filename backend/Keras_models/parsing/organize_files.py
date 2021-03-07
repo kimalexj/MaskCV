@@ -2,14 +2,14 @@ import os
 import shutil
 
 # Training directories
-with_directory = '/Users/alexjkim/Desktop/Projects/MaskCV/backend/Keras_models/data/mask/Train/with_mask'
-without_directory = '/Users/alexjkim/Desktop/Projects/MaskCV/backend/Keras_models/data/mask/Train/without_mask'
-incorrect_directory = '/Users/alexjkim/Desktop/Projects/MaskCV/backend/Keras_models/data/mask/Train/incorrect_mask'
+with_directory = './Keras_models/data/mask/Test/with_mask'
+without_directory = './Keras_models/data/mask/Test/without_mask'
+incorrect_directory = './Keras_models/data/mask/Test/incorrect_mask'
 
 # new locations
-test_with_directory = '/Users/alexjkim/Desktop/Projects/MaskCV/backend/Keras_models/data/mask/Test/with_mask'
-test_without_directory = '/Users/alexjkim/Desktop/Projects/MaskCV/backend/Keras_models/data/mask/Test/without_mask'
-test_incorrect_directory = '/Users/alexjkim/Desktop/Projects/MaskCV/backend/Keras_models/data/mask/Test/incorrect_mask'
+test_with_directory = './Keras_models/data/mask/Train/with_mask'
+test_without_directory = './Keras_models/data/mask/Train/without_mask'
+test_incorrect_directory = './Keras_models/data/mask/Train/incorrect_mask'
 
 # Main (Move quarter of files in each training directory to test)
 to_transfer_with = round((len(os.listdir(with_directory)) / 4) * 3);

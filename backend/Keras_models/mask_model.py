@@ -1,6 +1,9 @@
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
 import tensorflow as tf
 from tensorflow import keras
 from keras.preprocessing.image import ImageDataGenerator
@@ -12,61 +15,65 @@ import matplotlib.pyplot as plt
 import numpy as np
 import cv2
 
-# Predict on a single image (use openCV), will predict at the end
-mask_label = {0: 'Incorrect Mask', 1: 'With Mask', 2: 'Without Mask'}
-sample_image = cv2.imread('/Users/alexjkim/Desktop/Projects/MaskCV/backend/Keras_models/data/mask/Test/incorrect_mask/aug_8.jpg')
-sample_image = cv2.resize(sample_image, (128, 128))
-sample_image = np.reshape(sample_image,[1,128,128,3])
-sample_image = sample_image/255.0
+def classifyImage(img):
+    # Predict on a single image (use openCV), will predict at the end
+    mask_label = {0: 'Incorrect Mask', 1: 'With Mask', 2: 'Without Mask'}
+    sample_image = img
 
-# Determine if model has already been trained (clean out mask_model to retrain)
-try: 
-    model = keras.models.load_model('./mask_model') # folder for stored model
-    
-    # Predict for single image
-    mask_result = model.predict(sample_image)
-    print(mask_result);
-    print("Single image prediction: " + mask_label[mask_result.argmax()])
-except:
-    training_directory = './data/mask/Train';
-    testing_directory = './data/mask/Test';
+    sample_image = cv2.resize(sample_image, (128, 128))
+    sample_image = np.reshape(sample_image,[1,128,128,3])
+    sample_image = sample_image/255.0
 
-    # Augment datasets
-    training_data_generator = ImageDataGenerator(rescale = 1./255,horizontal_flip=True, zoom_range=0.3);
-    train_generator = training_data_generator.flow_from_directory(directory=training_directory,target_size=(128,128),class_mode='categorical',batch_size=32)
+    # Determine if model has already been trained (clean out mask_model to retrain)
+    try:
+        model = keras.models.load_model('./Keras_models/mask_model') # folder for stored model
 
-    testing_data_generator = ImageDataGenerator(rescale = 1./255,horizontal_flip=True, zoom_range=0.3);
-    test_generator = testing_data_generator.flow_from_directory(directory=testing_directory,target_size=(128,128),class_mode='categorical',batch_size=32)
+        # Predict for single image
+        mask_result = model.predict(sample_image)
+        print(mask_result);
+        print("Single image prediction: " + mask_label[mask_result.argmax()])
+        return mask_label[mask_result.argmax()]
+    except:
+        training_directory = './Keras_models/data/mask/Train';
+        testing_directory = './Keras_models/data/mask/Test';
 
-    # Train vgg19 model
-    vgg19 = VGG19(weights='imagenet',include_top=False,input_shape=(128,128,3))
+        # Augment datasets
+        training_data_generator = ImageDataGenerator(rescale = 1./255,horizontal_flip=True, zoom_range=0.3);
+        train_generator = training_data_generator.flow_from_directory(directory=training_directory,target_size=(128,128),class_mode='categorical',batch_size=32)
 
-    for layer in vgg19.layers:
-        layer.trainable = False
-        
-    model = Sequential()
-    model.add(vgg19)
-    model.add(Flatten())
+        testing_data_generator = ImageDataGenerator(rescale = 1./255,horizontal_flip=True, zoom_range=0.3);
+        test_generator = testing_data_generator.flow_from_directory(directory=testing_directory,target_size=(128,128),class_mode='categorical',batch_size=32)
 
-    # Specify Layers
-    model.add(Dense(3,activation='sigmoid'))
+        # Test vgg19 model
+        vgg19 = VGG19(weights='imagenet',include_top=False,input_shape=(128,128,3))
 
-    # Print summary of model used for training then compile
-    model.summary()
-    model.compile(optimizer="adam",loss="categorical_crossentropy",metrics ="accuracy")
+        for layer in vgg19.layers:
+            layer.trainable = False
 
-    print("Model compiled, ready for training\n");
+        model = Sequential()
+        model.add(vgg19)
+        model.add(Flatten())
 
-    history = model.fit(train_generator,
-                steps_per_epoch=len(train_generator)//32,
-                epochs=20) # Might want to go up to 20 epochs
+        # Specify Layers
+        model.add(Dense(3,activation='sigmoid'))
 
-    model.evaluate(test_generator)
+        # Print summary of model used for training then compile
+        model.summary()
+        model.compile(optimizer="adam",loss="categorical_crossentropy",metrics ="accuracy")
 
-    print("Finished training and evaluation, now saving model \n");
-    model.save('./mask_model')
+        print("Model compiled, ready for training\n");
 
-    # Prediction
-    print("Prediction for single image: ")
-    mask_result = model.predict(sample_image)
-    print(mask_label[mask_result.argmax()])
+        history = model.fit(train_generator,
+                    steps_per_epoch=len(train_generator)//32,
+                    epochs=20) # Might want to go up to 20 epochs
+
+        model.evaluate(test_generator)
+
+        print("Finished training and evaluation, now saving model \n");
+        model.save('./Keras_models/mask_model')
+
+        # Prediction
+        print("Prediction for single image: ")
+        mask_result = model.predict(sample_image)
+        print(mask_label[mask_result.argmax()])
+        return mask_label[mask_result.argmax()];

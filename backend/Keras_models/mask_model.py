@@ -26,7 +26,7 @@ def classifyImage(img):
 
     # Determine if model has already been trained (clean out mask_model to retrain)
     try:
-        model = keras.models.load_model('./Keras_models/mask_model') # folder for stored model
+        model = keras.models.load_model('./mask_model') # folder for stored model
 
         # Predict for single image
         mask_result = model.predict(sample_image)
@@ -34,8 +34,8 @@ def classifyImage(img):
         print("Single image prediction: " + mask_label[mask_result.argmax()])
         return mask_label[mask_result.argmax()]
     except:
-        training_directory = './Keras_models/data/mask/Train';
-        testing_directory = './Keras_models/data/mask/Test';
+        training_directory = './data/mask/Train';
+        testing_directory = './data/mask/Test';
 
         # Augment datasets
         training_data_generator = ImageDataGenerator(rescale = 1./255,horizontal_flip=True, zoom_range=0.3);
@@ -67,10 +67,11 @@ def classifyImage(img):
                     steps_per_epoch=len(train_generator)//32,
                     epochs=20) # Might want to go up to 20 epochs
 
-        model.evaluate(test_generator)
+        results = model.evaluate(test_generator)
+        print("test loss, test acc: \n", results)
 
         print("Finished training and evaluation, now saving model \n");
-        model.save('./Keras_models/mask_model')
+        model.save('./mask_model')
 
         # Prediction
         print("Prediction for single image: ")

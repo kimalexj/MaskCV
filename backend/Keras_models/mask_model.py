@@ -9,9 +9,8 @@ from tensorflow import keras
 from keras.preprocessing.image import ImageDataGenerator
 from keras.preprocessing import image
 from keras import Sequential
-from keras.layers import Flatten, Dense
+from keras.layers import Flatten, Dense, Dropout, LeakyReLU
 from keras.applications.vgg19 import VGG19
-import matplotlib.pyplot as plt
 import numpy as np
 import cv2
 
@@ -38,10 +37,10 @@ def classifyImage(img):
         testing_directory = './data/mask/Test';
 
         # Augment datasets
-        training_data_generator = ImageDataGenerator(rescale = 1./255,horizontal_flip=True, zoom_range=0.3);
+        training_data_generator = ImageDataGenerator(rescale = 1./255,horizontal_flip=True, vertical_flip=True, zoom_range=0.3, shear_range=0.3);
         train_generator = training_data_generator.flow_from_directory(directory=training_directory,target_size=(128,128),class_mode='categorical',batch_size=32)
 
-        testing_data_generator = ImageDataGenerator(rescale = 1./255,horizontal_flip=True, zoom_range=0.3);
+        testing_data_generator = ImageDataGenerator(rescale = 1./255,horizontal_flip=True, vertical_flip=True, zoom_range=0.3, shear_range=0.3);
         test_generator = testing_data_generator.flow_from_directory(directory=testing_directory,target_size=(128,128),class_mode='categorical',batch_size=32)
 
         # Test vgg19 model
@@ -55,16 +54,18 @@ def classifyImage(img):
         model.add(Flatten())
 
         # Specify Layers
-        model.add(Dense(3,activation='sigmoid'))
+        model.add(Dense(3, activation='sigmoid'))
 
         # Print summary of model used for training then compile
         model.summary()
-        model.compile(optimizer="adam",loss="categorical_crossentropy",metrics ="accuracy")
+        model.compile(optimizer="adam", loss="categorical_crossentropy", metrics ="accuracy")
 
         print("Model compiled, ready for training\n");
 
         history = model.fit(train_generator,
-                    steps_per_epoch=len(train_generator)//32,
+                    steps_per_epoch=round(len(train_generator)/32),
+                    validation_data=test_generator,
+                    validation_steps=round(len(test_generator)/32),
                     epochs=20) # Might want to go up to 20 epochs
 
         results = model.evaluate(test_generator)

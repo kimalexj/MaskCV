@@ -19,6 +19,8 @@ for face in zip(face_locations):
     for key, point in landmarks.items():
         cv2.circle(image, point, 2, (255, 0, 0), 6)
 
+print(face_locations);
+
 cv2.imshow('image',image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()

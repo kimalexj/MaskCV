@@ -14,18 +14,13 @@ BOX_THICKNESS = 2
 # initialise the detector class.
 detector = MTCNN()
 
-"""
-face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-
 nose_cascade = cv2.CascadeClassifier('./xml_cascades/nose.xml')
 mouth_cascade = cv2.CascadeClassifier('./xml_cascades/mouth.xml')
-"""
 
 path = "/Users/adnanahmad/Desktop/group1.jpeg"
 out_img = face_recognition.load_image_file(path)
 
 # Faces
-#faces = face_cascade.detectMultiScale(img, scaleFactor=1.1, minNeighbors=2)
 faces = detector.detect_faces(out_img)
 
 #plot boxes for faces
@@ -55,7 +50,6 @@ for face in zip(faces):
         cv2.putText(out_img, "MASK", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
     else:
 
-        """
         # Nose and Mouth extraction
         nose = nose_cascade.detectMultiScale(face, scaleFactor=1.2, minNeighbors=6)
         mouth = mouth_cascade.detectMultiScale(face, scaleFactor=1.2, minNeighbors=6)
@@ -64,12 +58,12 @@ for face in zip(faces):
         nose_not_covered = False
         for (nx, ny, nw, nh) in nose:
             nose_not_covered = True
-            cv2.rectangle(out_face, (nx, ny), (nx + nw, ny + nh), (255, 0, 0), BOX_THICKNESS)
+            cv2.rectangle(face, (nx, ny), (nx + nw, ny + nh), (255, 0, 0), BOX_THICKNESS)
 
         mouth_not_covered = False
         for (mx, my, mw, mh) in mouth:
             mouth_not_covered = True
-            cv2.rectangle(out_face, (mx, my), (mx + mw, my + mh), (255, 0, 0), BOX_THICKNESS)
+            cv2.rectangle(face, (mx, my), (mx + mw, my + mh), (255, 0, 0), BOX_THICKNESS)
 
         resp = ""
         if nose_not_covered and mouth_not_covered:
@@ -80,7 +74,6 @@ for face in zip(faces):
         cv2.rectangle(out_img, (x, y), (x + w, y + h), (255, 165, 0), BOX_THICKNESS)
         cv2.putText(out_img, "INCORRECT: " + resp, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 165, 0), 2)
 
-        """
 # Turn axis off
 plt.axis('off')
 

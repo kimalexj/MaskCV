@@ -68,7 +68,7 @@ for face in zip(faces):
         resp = ""
         if nose_not_covered and mouth_not_covered:
             resp = "NOSE, MOUTH"
-        else:
+        elif nose_not_covered or mouth_not_covered:
             resp = "NOSE" if nose_not_covered else "MOUTH"
 
         cv2.rectangle(out_img, (x, y), (x + w, y + h), (255, 165, 0), BOX_THICKNESS)

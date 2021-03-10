@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Chart } from 'react-charts'
 import { Nav, NavItem, NavLink, TabContent, TabPane, Container, Row, Col, } from 'reactstrap';
 import Gallery from 'react-grid-gallery';
 
@@ -12,6 +13,69 @@ import img_four from '../img/sample_raw/mask492.png';
 
 // Test graph
 import test_graph from '../img/testgraph.png';
+
+// Chart Data
+const loss_16 = React.useMemo(
+    () => [
+      {
+        label: 'Training',
+        data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]]
+      },
+      {
+        label: 'Validation',
+        data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]]
+      }
+    ],
+    []
+);
+const accuracy_16 = React.useMemo(
+    () => [
+      {
+        label: 'Training',
+        data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]]
+      },
+      {
+        label: 'Validation',
+        data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]]
+      }
+    ],
+    []
+);
+const loss_19 = React.useMemo(
+    () => [
+      {
+        label: 'Training',
+        data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]]
+      },
+      {
+        label: 'Validation',
+        data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]]
+      }
+    ],
+    []
+);
+const accuracy_19 = React.useMemo(
+    () => [
+      {
+        label: 'Training',
+        data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]]
+      },
+      {
+        label: 'Validation',
+        data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]]
+      }
+    ],
+    []
+);
+
+// Chart axes
+const axes = React.useMemo(
+    () => [
+        { primary: true, type: 'linear', position: 'bottom' },
+        { type: 'linear', position: 'left' }
+    ],
+    []
+);
 
 const images = [
     {
@@ -63,10 +127,13 @@ const ResultsPage = () => {
                         <TabPane tabId="1">
                             <Container>
                                 <Row>
-                                    <Col>
+                                    <Col sm="4">
                                         <img src={test_graph} alt="graph_image_one" width="600" height="400"/>
                                     </Col>
-                                    <Col>
+                                    <Col sm="4">
+                                        <img src={test_graph} alt="graph_image_one" width="600" height="400"/>
+                                    </Col>
+                                    <Col sm="4">
                                         <ul>
                                             <li>Training Accuracy: </li>
                                             <li>Testing Accuracy: </li>

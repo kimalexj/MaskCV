@@ -6,23 +6,39 @@ import Gallery from 'react-grid-gallery';
 import './Results.css';
 
 // Raw picture images
-import img_one from '../img/sample_raw/mask46.png';
-import img_two from '../img/sample_raw/mask91.png';
-import img_three from '../img/sample_raw/mask94.png';
-import img_four from '../img/sample_raw/mask492.png';
+import img_one from '../img/raw/1.jpg';
+import img_two from '../img/raw/2.jpg';
+import img_three from '../img/raw/3.jpg';
+import img_four from '../img/raw/4.jpg';
+import img_five from '../img/raw/5.jpg';
+import img_six from '../img/raw/6.png';
+import img_seven from '../img/raw/7.jpg';
+import img_eight from '../img/raw/8.jpeg';
+import img_nine from '../img/raw/9.jpg';
+
+// Classified picture images
+import img_classified_one from '../img/classified/1.png';
+import img_classified_two from '../img/classified/2.png';
+import img_classified_three from '../img/classified/3.png';
+import img_classified_four from '../img/classified/4.png';
+import img_classified_five from '../img/classified/5.png';
+import img_classified_six from '../img/classified/6.png';
+import img_classified_seven from '../img/classified/7.png';
+import img_classified_eight from '../img/classified/8.png';
+import img_classified_nine from '../img/classified/9.png';
 
 const images = [
     {
         src: img_one,
         thumbnail: img_one,
         thumbnailWidth: 400,
-        thumbnailHeight: 226
+        thumbnailHeight: 289
     },
     {
         src: img_two,
         thumbnail: img_two,
-        thumbnailWidth: 400,
-        thumbnailHeight: 225
+        thumbnailWidth: 402,
+        thumbnailHeight: 294
     },
     {
         src: img_three,
@@ -33,8 +49,95 @@ const images = [
     {
         src: img_four,
         thumbnail: img_four,
+        thumbnailWidth: 600,
+        thumbnailHeight: 400
+    },
+    {
+        src: img_five,
+        thumbnail: img_five,
         thumbnailWidth: 301,
         thumbnailHeight: 400
+    },
+    {
+        src: img_six,
+        thumbnail: img_six,
+        thumbnailWidth: 1200,
+        thumbnailHeight: 900
+    },
+    {
+        src: img_seven,
+        thumbnail: img_seven,
+        thumbnailWidth: 1200,
+        thumbnailHeight: 900
+    },
+    {
+        src: img_eight,
+        thumbnail: img_eight,
+        thumbnailWidth: 283,
+        thumbnailHeight: 178
+    },
+    {
+        src: img_nine,
+        thumbnail: img_nine,
+        thumbnailWidth: 390,
+        thumbnailHeight: 280
+    }
+]
+
+const classified_images = [
+    {
+        src: img_classified_one,
+        thumbnail: img_classified_one,
+        thumbnailWidth: 400,
+        thumbnailHeight: 289
+    },
+    {
+        src: img_classified_two,
+        thumbnail: img_classified_two,
+        thumbnailWidth: 402,
+        thumbnailHeight: 294
+    },
+    {
+        src: img_classified_three,
+        thumbnail: img_classified_three,
+        thumbnailWidth: 400,
+        thumbnailHeight: 226
+    },
+    {
+        src: img_classified_four,
+        thumbnail: img_classified_four,
+        thumbnailWidth: 600,
+        thumbnailHeight: 400
+    },
+    {
+        src: img_classified_five,
+        thumbnail: img_classified_five,
+        thumbnailWidth: 301,
+        thumbnailHeight: 400
+    },
+    {
+        src: img_classified_six,
+        thumbnail: img_classified_six,
+        thumbnailWidth: 1200,
+        thumbnailHeight: 900
+    },
+    {
+        src: img_classified_seven,
+        thumbnail: img_classified_seven,
+        thumbnailWidth: 1200,
+        thumbnailHeight: 900
+    },
+    {
+        src: img_classified_eight,
+        thumbnail: img_classified_eight,
+        thumbnailWidth: 283,
+        thumbnailHeight: 178
+    },
+    {
+        src: img_classified_nine,
+        thumbnail: img_classified_nine,
+        thumbnailWidth: 390,
+        thumbnailHeight: 280
     }
 ]
 
@@ -200,7 +303,7 @@ function ResultsPage() {
                         <h4 className="galleryTitle process">Processed</h4>
                         <Gallery 
                             backdropClosesModal={true}
-                            images={images}
+                            images={classified_images}
                         />
                     </Col>
                 </Row>

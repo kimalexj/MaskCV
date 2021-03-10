@@ -16,3 +16,11 @@
     border: 2px solid lightgreen;
     width: 122px;
 }
+
+g.tick[style="transform: translate3d(385px, 0px, 0px);"] > .labelGroup > .tickLabel {
+    transform: translate3d(-5px, 20px, 0px) rotate(0deg) !important;
+}
+
+.col-sm-2 {
+    z-index: -5 !important;
+}

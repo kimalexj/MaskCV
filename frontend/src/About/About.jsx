@@ -71,7 +71,7 @@ const AboutPage = () => {
                                 </FadeIn>
                             </Col>
                             <Col>
-                                <img style={{paddingLeft: '40px'}} src={sick} />
+                                <img style={{paddingLeft: '40px'}} src={sick} alt="sick"/>
                             </Col>
                         </Row>
                     </Container>
@@ -94,11 +94,11 @@ const AboutPage = () => {
                                     </ul>
                                 <br />
                                 <h4 className="tabSubheader">Flow Diagram:</h4>
-                                <img src={flow} />  
+                                <img src={flow} alt="flow"/>  
                             </Col>
                             <Col sm="2"></Col>
                             <Col sm="4">
-                                <img className="womanImage" src={woman} />
+                                <img className="womanImage" src={woman} alt="woman"/>
                                 <div className="cardWrapper">
                                     <Card body className="singleCard">
                                         <CardHeader>Haar Cascade Classifier</CardHeader>
@@ -149,7 +149,7 @@ const AboutPage = () => {
                             </Col>
                             <Col sm="1"></Col>
                             <Col sm="3">
-                                <img style={{paddingLeft: '10px'}} src={maskImage} />
+                                <img style={{paddingLeft: '10px'}} src={maskImage} alt="maskImage"/>
                             </Col>
                         </Row>
                     </Container>

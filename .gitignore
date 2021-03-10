@@ -3,5 +3,6 @@
 data/
 animal_model/
 mask_model/
+mask_model_16/
 backend/Keras_models/__pycache__/
 

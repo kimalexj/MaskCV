@@ -11,16 +11,17 @@ from keras.preprocessing import image
 from keras import Sequential
 from keras.layers import Flatten, Dense, Dropout, LeakyReLU
 from keras.applications.vgg19 import VGG19
+from keras.applications.vgg16 import VGG16
 from keras.callbacks import EarlyStopping
 from keras.optimizers import Adam
 import numpy as np
 import cv2
 
 def classifyImage(img):
-    # Current best = 95% testing accuracy on validation w/ 64 batch size
+    # Current best = 94% testing accuracy
 
     # Target model folder
-    saved_location = "./mask_model"
+    saved_location = "./mask_model_16"
 
     # Predict on a single image (use openCV), will predict at the end
     mask_label = {0: 'Incorrect Mask', 1: 'With Mask', 2: 'Without Mask'}
@@ -72,13 +73,13 @@ def classifyImage(img):
                     batch_size=64);
 
         # Test vgg19 model
-        vgg19 = VGG19(weights='imagenet',include_top=False,input_shape=(128,128,3))
+        vgg16 = VGG16(weights='imagenet',include_top=False,input_shape=(128,128,3))
 
-        for layer in vgg19.layers:
+        for layer in vgg16.layers:
             layer.trainable = False
 
         model = Sequential()
-        model.add(vgg19)
+        model.add(vgg16)
         model.add(Flatten())
 
         # Specify Layers

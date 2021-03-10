@@ -14,69 +14,6 @@ import img_four from '../img/sample_raw/mask492.png';
 // Test graph
 import test_graph from '../img/testgraph.png';
 
-// Chart Data
-const loss_16 = React.useMemo(
-    () => [
-      {
-        label: 'Training',
-        data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]]
-      },
-      {
-        label: 'Validation',
-        data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]]
-      }
-    ],
-    []
-);
-const accuracy_16 = React.useMemo(
-    () => [
-      {
-        label: 'Training',
-        data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]]
-      },
-      {
-        label: 'Validation',
-        data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]]
-      }
-    ],
-    []
-);
-const loss_19 = React.useMemo(
-    () => [
-      {
-        label: 'Training',
-        data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]]
-      },
-      {
-        label: 'Validation',
-        data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]]
-      }
-    ],
-    []
-);
-const accuracy_19 = React.useMemo(
-    () => [
-      {
-        label: 'Training',
-        data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]]
-      },
-      {
-        label: 'Validation',
-        data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]]
-      }
-    ],
-    []
-);
-
-// Chart axes
-const axes = React.useMemo(
-    () => [
-        { primary: true, type: 'linear', position: 'bottom' },
-        { type: 'linear', position: 'left' }
-    ],
-    []
-);
-
 const images = [
     {
         src: img_one,
@@ -104,8 +41,71 @@ const images = [
     }
 ]
 
-const ResultsPage = () => {
+function ResultsPage() {
     const [activeTab, setActiveTab] = useState('1');
+
+    // Chart Data
+    const loss_16 = React.useMemo(
+        () => [
+        {
+            label: 'Training',
+            data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]]
+        },
+        {
+            label: 'Validation',
+            data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]]
+        }
+        ],
+        []
+    );
+    const accuracy_16 = React.useMemo(
+        () => [
+        {
+            label: 'Training',
+            data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]]
+        },
+        {
+            label: 'Validation',
+            data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]]
+        }
+        ],
+        []
+    );
+    const loss_19 = React.useMemo(
+        () => [
+        {
+            label: 'Training',
+            data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]]
+        },
+        {
+            label: 'Validation',
+            data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]]
+        }
+        ],
+        []
+    );
+    const accuracy_19 = React.useMemo(
+        () => [
+        {
+            label: 'Training',
+            data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]]
+        },
+        {
+            label: 'Validation',
+            data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]]
+        }
+        ],
+        []
+    );
+
+    // Chart axes
+    const axes = React.useMemo(
+        () => [
+            { primary: true, type: 'linear', position: 'bottom' },
+            { type: 'linear', position: 'left' }
+        ],
+        []
+    );
 
     return (
         <Container>

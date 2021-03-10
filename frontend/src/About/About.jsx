@@ -158,11 +158,49 @@ const AboutPage = () => {
                     <div className="innerTab">
                         <h4 className="tabSubheader">Algorithms:</h4>
                         <ul className="listWrapper">
-                            <li className="listEntry">Haar Cascade Face/Feature Detection</li>
+                            <li className="listEntry"><a href="https://hackprojects.wordpress.com/tutorials/opencv-python-tutorials/opencv-nose-detection-using-haar-cascades/">Haar Cascade Face/Feature Detection for nose + mouth detection</a></li>
+                            <li className="listEntry"><a href="https://intellica-ai.medium.com/a-guide-for-building-your-own-face-detection-recognition-system-910560fe3eb7">MTCNN for Face Detection</a></li>
+                            <li className="listEntry"><a href="https://keras.io/api/applications/vgg/">VGG 16/VGG 19 for detecting if mask on</a></li>
                         </ul>
                         <br />
                         <h4 className="tabSubheader">Models:</h4>
+                        <h4 className="tabSubheader">Process and Issues:</h4>
+                        <p>A lot of this project was researching for resources that we could use in our code.
+                        We tried exploring the idea of just using one neural network at first, but we then realized it would be better in
+                        terms of accuracy to just crop out faces and feed that to our trained neural network. Our trained neural network can identify
+                        features from one single face and classify an image into 3 distinct categories:
+                        (a) face wearing mask, (b) face not wearing mask, and (c) face wearing mask incorrectly.
+                        <br></br>
+                        <br></br>
+                        We first started with Haar Cascade for face detection, but we soon ran into issues. Haar Cascade does
+                        not work well on faces with masks on them because they use other features to extract face coordinates. Those features
+                        were being covered by the mask. It also requires
+                        fine tuning some parameters. We were able to fine tune them to work but it was still not good enough.
+                        We were hoping just to use Haar Cascade and our trained neural network, but we ended up using
+                        MTCNN which is a much better face detector. MTCNN uses a convolutional neural network to detect faces and worked a lot better than
+                        Haar Cascade.
+                        <br></br>
+                        <br></br>
+                        Our main process was first detecting and getting coordinates for each face in an image with MTCNN, and then we would
+                        crop each face. We then passed the cropped face to our trained neural network which would classify
+                        the image in one of the three groups as mentioned above. If the group was identified as 'incorrectly worn mask'
+                        then we used Haar Cascade to detect noses and mouths. If a nose or mouth was detected, we would tell
+                        the user that the mask was worn incorrectly because a nose or mouth was showing.
+                        <br></br>
+                        <br></br>
+                        We did not want to use Haar Cascade for nose and mouth because it did not really detect noses or mouths
+                        well either. We looked into a method called <a href="https://www.pyimagesearch.com/2017/04/10/detect-eyes-nose-lips-jaw-dlib-opencv-python/">dlib</a> but
+                        that predicted where noses and mouths were located based on the bounding box for the face. The only other option
+                        was to create two neural networks to be trained on a lot of images of noses and mouths. However, it would take a lot
+                        of time to find images to train on, and it was messy just using so many networks from the beginning. So,
+                        we decided to stick with Haar Cascade and instead focus on training our mask model and making that better.
+
+                        </p>
                         <h4 className="tabSubheader">Code:</h4>
+                        <ul className="listWrapper">
+                            <li><a href="https://github.com/kimalexj/MaskCV">GitHub</a></li>
+                        </ul>
+
                     </div>
                 </TabPane>
           </TabContent>

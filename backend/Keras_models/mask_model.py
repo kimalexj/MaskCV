@@ -73,7 +73,7 @@ def classifyImage(img):
                     batch_size=64);
 
         # Test vgg19 model
-        vgg16 = VGG16(weights='imagenet',include_top=False,input_shape=(128,128,3))
+        vgg16 = VGG16(weights='imagenet', include_top=False, input_shape=(128,128,3))
 
         for layer in vgg16.layers:
             layer.trainable = False

@@ -1,3 +1,6 @@
+@import 'codemirror/lib/codemirror.css';
+@import 'codemirror/theme/mdn-like.css';
+
 .tabSubheader {
     font-family: 'Raleway', Sans-Serif;
     font-size: 20px;
@@ -22,7 +25,7 @@
 }
 
 a.datalink {
-    color: lightskyblue !important;
+    color: darkcyan !important;
 }
 
 .womanImage {

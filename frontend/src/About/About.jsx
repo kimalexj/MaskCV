@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
 import { Nav, NavItem, NavLink, TabContent, TabPane, Container, Row, Col, Card, CardHeader, Button } from 'reactstrap';
+
+import CodeMirror from '@uiw/react-codemirror';
+import 'codemirror/lib/codemirror.css';
+import 'codemirror/addon/display/autorefresh';
+import 'codemirror/keymap/sublime';
+import 'codemirror/theme/duotone-light.css';
+
 import FadeIn from 'react-fade-in';
 import maskImage from '../img/coronaImage.png';
 import flow from '../img/flowdiagram.png';
@@ -9,6 +16,7 @@ import './About.css';
 
 const AboutPage = () => {
     const [activeTab, setActiveTab] = useState('1');
+    const [codeBlockOne, changeCodeBlockOne] = useState('vgg16 = VGG16(weights=\'imagenet\', include_top=False, input_shape=(128,128,3))\nmodel = Sequential()\nmodel.add(vgg16)\nmodel.add(Flatten())\nmodel.add(Dense(3, activation=\'sigmoid\'))\nmodel.compile(optimizer="adam", loss="categorical_crossentropy", metrics ="accuracy")\nes = EarlyStopping(monitor=\'val_loss\', patience=8, verbose=0, min_delta=0.001, mode=\'auto\')\nhistory = model.fit(train_generator, steps_per_epoch=4, validation_data=test_generator, validation_steps=4, epochs=400, callbacks=[es])');
 
     return (
         <div className="tabsWrapper">
@@ -108,9 +116,13 @@ const AboutPage = () => {
                                         <CardHeader>VGG16</CardHeader>
                                         <Button href="https://neurohive.io/en/popular-networks/vgg16/" target="_blank" rel="noreferrer" color="info">Learn More</Button>
                                     </Card>
-                                    <Card body>
+                                    <Card body className="singleCard">
                                         <CardHeader>VGG19</CardHeader>
                                         <Button href="https://iq.opengenus.org/vgg19-architecture/" target="_blank" rel="noreferrer" color="info">Learn More</Button>
+                                    </Card> 
+                                    <Card body>
+                                        <CardHeader>MTCNN</CardHeader>
+                                        <Button href="https://towardsdatascience.com/face-detection-using-mtcnn-a-guide-for-face-extraction-with-a-focus-on-speed-c6d59f82d49" target="_blank" rel="noreferrer" color="info">Learn More</Button>
                                     </Card> 
                                 </div>
                             </Col>
@@ -156,51 +168,75 @@ const AboutPage = () => {
                 </TabPane>
                 <TabPane tabId="4">
                     <div className="innerTab">
+                        <h4 className="tabSubheader">Code:</h4>
+                        <ul className="listWrapper">
+                            <li><a className="datalink" href="https://github.com/kimalexj/MaskCV">GitHub</a></li>
+                        </ul>
+                        <br />
                         <h4 className="tabSubheader">Algorithms:</h4>
                         <ul className="listWrapper">
-                            <li className="listEntry"><a href="https://hackprojects.wordpress.com/tutorials/opencv-python-tutorials/opencv-nose-detection-using-haar-cascades/">Haar Cascade Face/Feature Detection for nose + mouth detection</a></li>
-                            <li className="listEntry"><a href="https://intellica-ai.medium.com/a-guide-for-building-your-own-face-detection-recognition-system-910560fe3eb7">MTCNN for Face Detection</a></li>
-                            <li className="listEntry"><a href="https://keras.io/api/applications/vgg/">VGG 16/VGG 19 for detecting if mask on</a></li>
+                            <li className="listEntry"><a className="datalink" href="https://hackprojects.wordpress.com/tutorials/opencv-python-tutorials/opencv-nose-detection-using-haar-cascades/">Haar Cascade Face/Feature Detection for nose + mouth detection</a></li>
+                            <li className="listEntry"><a className="datalink" href="https://intellica-ai.medium.com/a-guide-for-building-your-own-face-detection-recognition-system-910560fe3eb7">MTCNN for Face Detection</a></li>
+                            <li className="listEntry"><a className="datalink" href="https://keras.io/api/applications/vgg/">VGG16/VGG19 for detecting if mask is on</a></li>
                         </ul>
                         <br />
                         <h4 className="tabSubheader">Models:</h4>
+                        <p>We wanted to decide to between VGG16 or VGG19 to see if one would perform more effectively with our datasets than the other.
+                        Scanning the kaggle notebooks of people who have trained a model to provide mask detection showed examples of VGG19 but not VGG16 and
+                        that was another part of the reason why we chose to do so. In the end, we found that VGG16 actually performed slightly better than 
+                        VGG19. 
+                        <br />
+                        <br />
+                        After familiaring ourselves with <a className="datalink" href="https://keras.io/">Keras</a> and experimenting with the parameters of the model,
+                        we found that <b>augmenting</b> the dataset, adding a built-in dense layer on top of VGG16/19 that applied a <b>sigmoid activation</b>, keeping the <b> 
+                        batch size </b> at around 128, and utilizing <b>Early Stopping</b> to prevent overfitting produced the best <a className="datalink" href="#/Results">results</a>.
+                        Increasing the batch size helped to reduce the fluctuations we initially saw in the validation loss and using Early Stopping to monitor
+                        the validation loss allowed us to set the number of epochs to train at a high value without a worry of overtraining.
+                        </p>
+                        <CodeMirror
+                            value={codeBlockOne}
+                            options={{
+                                mode: 'python',
+                                theme: 'duotone-light',
+                                tabSize: 4,
+                                keyMap: 'sublime',
+                                autoRefresh: true,
+                                lineNumbers: false
+                            }}
+                        />
+                        <br />
+                        <br />
                         <h4 className="tabSubheader">Process and Issues:</h4>
-                        <p>A lot of this project was researching for resources that we could use in our code.
+                        <p>A significant portion of this project involved researching for resources that we could use in our code.
                         We tried exploring the idea of just using one neural network at first, but we then realized it would be better in
-                        terms of accuracy to just crop out faces and feed that to our trained neural network. Our trained neural network can identify
-                        features from one single face and classify an image into 3 distinct categories:
+                        terms of accuracy to just crop out faces and feed that into our trained neural network. This network was designed to identify
+                        features from the image of a single face and classify it into <b>one of three</b> distinct categories:
                         (a) face wearing mask, (b) face not wearing mask, and (c) face wearing mask incorrectly.
                         <br></br>
                         <br></br>
                         We first started with Haar Cascade for face detection, but we soon ran into issues. Haar Cascade does
                         not work well on faces with masks on them because they use other features to extract face coordinates. Those features
                         were being covered by the mask. It also requires
-                        fine tuning some parameters. We were able to fine tune them to work but it was still not good enough.
-                        We were hoping just to use Haar Cascade and our trained neural network, but we ended up using
-                        MTCNN which is a much better face detector. MTCNN uses a convolutional neural network to detect faces and worked a lot better than
-                        Haar Cascade.
+                        fine tuning some parameters. We were able to adjust them to work to a degree but it was not as robust as we would have hoped.
+                        As a result, we ended up using <b>MTCNN</b> as it had much better performance in detecting faces. MTCNN uses a convolutional 
+                        neural network to detect faces and as a whole was more effective than Haar Cascade.
                         <br></br>
                         <br></br>
-                        Our main process was first detecting and getting coordinates for each face in an image with MTCNN, and then we would
-                        crop each face. We then passed the cropped face to our trained neural network which would classify
-                        the image in one of the three groups as mentioned above. If the group was identified as 'incorrectly worn mask'
-                        then we used Haar Cascade to detect noses and mouths. If a nose or mouth was detected, we would tell
-                        the user that the mask was worn incorrectly because a nose or mouth was showing.
+                        Our first step then was detecting and getting coordinates for each face in an image with MTCNN and then 
+                        cropping them out individually. We then passed the cropped face to our trained neural network which would classify
+                        the image in one of the three groups as mentioned above. If an image was identified as an 'incorrectly worn mask'
+                        we used Haar Cascade to detect noses and mouths. If a nose or mouth was detected, we would tell
+                        the user that the mask was worn incorrectly because a nose or mouth was openly visible.
                         <br></br>
                         <br></br>
-                        We did not want to use Haar Cascade for nose and mouth because it did not really detect noses or mouths
-                        well either. We looked into a method called <a href="https://www.pyimagesearch.com/2017/04/10/detect-eyes-nose-lips-jaw-dlib-opencv-python/">dlib</a> but
+                        To note, we did not want to use Haar Cascade for nose and mouth because it did not do too well in detecting noses or mouths
+                        well either. We looked into using <a className="datalink" href="https://www.pyimagesearch.com/2017/04/10/detect-eyes-nose-lips-jaw-dlib-opencv-python/">dlib</a> but
                         that predicted where noses and mouths were located based on the bounding box for the face. The only other option
-                        was to create two neural networks to be trained on a lot of images of noses and mouths. However, it would take a lot
-                        of time to find images to train on, and it was messy just using so many networks from the beginning. So,
-                        we decided to stick with Haar Cascade and instead focus on training our mask model and making that better.
-
+                        we thought of at this point was to create our own neural networks to be trained on images of noses and mouths. However, we
+                        thought for the sake of time and interest that it would be more efficient to improve our main mask detection model. So,
+                        we decided to stick with Haar Cascade for feature detection.
                         </p>
-                        <h4 className="tabSubheader">Code:</h4>
-                        <ul className="listWrapper">
-                            <li><a href="https://github.com/kimalexj/MaskCV">GitHub</a></li>
-                        </ul>
-
+                        <br />
                     </div>
                 </TabPane>
           </TabContent>

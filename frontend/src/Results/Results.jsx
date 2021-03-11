@@ -222,12 +222,12 @@ function ResultsPage() {
                 <Nav tabs>
                     <NavItem>
                         <NavLink className={activeTab === '1' ? 'active' : 'defaultTab'} onClick={() => setActiveTab('1')}>
-                            VGG 16
+                            VGG16 Mask Detection
                         </NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink className={activeTab === '2' ? 'active' : 'defaultTab'} onClick={() => setActiveTab('2')}>
-                            VGG 19
+                            VGG19 Mask Detection
                         </NavLink>
                     </NavItem>
                 </Nav>
@@ -237,23 +237,26 @@ function ResultsPage() {
                                 <Row>
                                     <Col sm="3">
                                         <div style={{width: '425px', height: '350px'}}>
-                                            <p style={{marginBottom: '10px'}}>Loss vs. Epoch</p>
+                                            <p style={{marginBottom: '10px', fontFamily: 'Raleway, Sans-Serif'}}>Loss vs. Epoch</p>
                                             <Chart data={loss_16} axes={axes} series={series} tooltip primaryCursor secondaryCursor />
                                         </div>
                                     </Col>
                                     <Col sm="2"></Col>
                                     <Col sm="3">
                                         <div style={{width: '425px', height: '350px'}}>
-                                            <p style={{marginBottom: '10px'}}>Accuracy vs. Epoch</p>
+                                            <p style={{marginBottom: '10px', fontFamily: 'Raleway, Sans-Serif'}}>Accuracy vs. Epoch</p>
                                             <Chart data={accuracy_16} axes={axes} series={series} tooltip primaryCursor secondaryCursor />
                                         </div>                                    
                                     </Col>
                                     <Col sm="2"></Col>
                                     <Col sm="2">
-                                       Training Accuracy: 0.971
-                                       <br />
-                                       <br />
-                                       Testing Accuracy: 0.948
+                                        <span style={{fontWeight: '700'}}>Final Results</span>
+                                        <br />
+                                        <br />
+                                        Training Accuracy: 0.971
+                                        <br />
+                                        <br />
+                                        Testing Accuracy: 0.948
                                     </Col>
                                 </Row>
                             </Container>
@@ -263,23 +266,26 @@ function ResultsPage() {
                                 <Row>
                                     <Col sm="3">
                                         <div style={{width: '400px', height: '350px'}}>
-                                            <p style={{marginBottom: '10px'}}>Loss vs. Epoch</p>
+                                            <p style={{marginBottom: '10px', fontFamily: 'Raleway, Sans-Serif'}}>Loss vs. Epoch</p>
                                             <Chart data={loss_19} axes={axes} series={series} tooltip primaryCursor secondaryCursor />
                                         </div>
                                     </Col>
-                                    <Col sm="2" className="paddedSpace"></Col>
+                                    <Col sm="2"></Col>
                                     <Col sm="3">
                                         <div style={{width: '400px', height: '350px'}}>
-                                            <p style={{marginBottom: '10px'}}>Accuracy vs. Epoch</p>
+                                            <p style={{marginBottom: '10px', fontFamily: 'Raleway, Sans-Serif'}}>Accuracy vs. Epoch</p>
                                             <Chart data={accuracy_19} axes={axes} series={series} tooltip primaryCursor secondaryCursor />
                                         </div>                                    
                                     </Col>
                                     <Col sm="2"></Col>
                                     <Col sm="2">
-                                       Training Accuracy: 0.9367
-                                       <br />
-                                       <br />
-                                       Testing Accuracy: 0.9365
+                                        <span style={{fontWeight: '700'}}>Final Results</span>
+                                        <br />
+                                        <br />
+                                        Training Accuracy: 0.9367
+                                        <br />
+                                        <br />
+                                        Testing Accuracy: 0.9365
                                     </Col>
                                 </Row>
                             </Container>
@@ -290,7 +296,6 @@ function ResultsPage() {
 
             <div className="galleryWrapper">
                 <Row>
-                    <Col sm="1"></Col>
                     <Col sm="5">
                         <h4 className="galleryTitle orig">Original</h4>
                         <Gallery 

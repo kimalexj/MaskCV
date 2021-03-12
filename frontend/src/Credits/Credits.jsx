@@ -37,7 +37,7 @@ const CreditsPage = () => {
                                     <li>VGG 16/19 from the Keras library</li>
                                     <li>Haar Cascade Feature Classifiers</li>
                                     <li>Parameter modifications influenced from <a href="https://www.kaggle.com/andrewmvd/face-mask-detection/code">Kaggle notebooks</a></li>
-                                    <li>MTCNN</li>
+                                    <li>MTCNN Face Detection</li>
                                 </ul>
                                 Frontend
                                 <ul>

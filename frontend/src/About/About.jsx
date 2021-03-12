@@ -241,7 +241,7 @@ const AboutPage = () => {
                         <h4 className="tabSubheader">Moving Forward:</h4>
                         <p>Given more time, our next steps would involve improving upon our code's ability to extract facial features, specifically
                         noses and mouths. Our current implementation, which utilizes Haar Cascade, was often flawed and unable to properly detect
-                        these features consistently. The proposed solution to this issue was to gather more datasets so that we could train separate models
+                        these features consistently. The proposed solution to this issue was to train separate models on new datasets
                         to be able to classify noses and mouths. Ideally, this change would allow our code to more accurately define and display information
                         regarding "Incorrect" mask usage.
                         <br></br>
@@ -255,14 +255,17 @@ const AboutPage = () => {
                         <h4 className="tabSubheader">Comparing our Approach:</h4>
                         <p>What separates our approach from the other kaggle notebooks on mask detection was our decision to implement
                         MTCNN instead of Haar Cascade. As previously mentioned, we found that Haar Cascade tended to preform poorly when attempting to detect
-                        faces with masks. Also, the need to fine tune the face detection parameters became cumbersome and difficult to do. In that regard, MTCNN's
-                        effectiveness was extremely beneficial for our model's performance.
+                        faces with masks. Also, the need to fine tune the face detection parameters became cumbersome and difficult to properly apply to our dataset.
+                        As a convolutional neural network, MTCNN was a better and more accurate tool to use for detecting faces. Its performance also did not depend on
+                        us fine tuning specific parameters, making the setup more convenient as well. In that regard, MTCNN's effectiveness was extremely beneficial
+                        for our model's overall performance.
                         <br></br>
                         <br></br>
-                        Another difference in our approach was adding the additional step of detecting noses and mouths on faces with "incorrect" mask usage. The idea
-                        was to be able to display more helpful information on proper mask wearing. However, this addition turned out to be much more complex than we initially believed.
-                        Our use of Haar Cascade for this step resulted in poor facial feature detection and was ultimately a drawback. Despite keeping Haar Cascade as our method of feature extraction,
-                        we thought it would be more beneficial to attempt other options in the future.
+                        Another difference in our approach was adding the step of detecting noses and mouths on faces with "incorrect" mask usage. The idea
+                        was to be able to display more helpful information to solve improper mask wearing. However, this addition turned out to be much more
+                        complex than we initially believed. Our use of Haar Cascade for this step resulted in poor facial feature detection which limited our
+                        code's ability to find the specific errors in mask wearing. Ultimately, this portion became a drawback and despite keeping Haar Cascade
+                        as our method of feature extraction, we thought it would be more beneficial to attempt other options in the future.
                         </p>
                     </div>
                 </TabPane>

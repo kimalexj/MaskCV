@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Nav, NavItem, NavLink, TabContent, TabPane, Container, Row, Col, Card, CardHeader, Button } from 'reactstrap';
+import Gallery from 'react-grid-gallery';
 
 import CodeMirror from '@uiw/react-codemirror';
 import 'codemirror/lib/codemirror.css';
@@ -14,9 +15,76 @@ import woman from '../img/woman.png';
 import sick from '../img/sick.png';
 import './About.css';
 
+
+// Haar Cascade and MTCNN difference images
+import img_one from '../img/differenceHaarMTCNN/11.png';
+import img_two from '../img/differenceHaarMTCNN/12.png';
+import img_three from '../img/differenceHaarMTCNN/21.png';
+import img_four from '../img/differenceHaarMTCNN/22.png';
+import img_five from '../img/differenceHaarMTCNN/31.png';
+import img_six from '../img/differenceHaarMTCNN/32.png';
+
+const image_one = [
+    {
+        src: img_one,
+        thumbnail: img_one,
+        thumbnailWidth: 988,
+        thumbnailHeight: 660
+    }
+]
+
+const image_two = [
+    {
+        src: img_two,
+        thumbnail: img_two,
+        thumbnailWidth: 989,
+        thumbnailHeight: 661
+    }
+]
+
+const image_three = [
+    {
+        src: img_three,
+        thumbnail: img_three,
+        thumbnailWidth: 990,
+        thumbnailHeight: 659
+    }
+]
+
+const image_four = [
+    {
+        src: img_four,
+        thumbnail: img_four,
+        thumbnailWidth: 990,
+        thumbnailHeight: 659
+    }
+]
+
+const image_five = [
+    {
+        src: img_five,
+        thumbnail: img_five,
+        thumbnailWidth: 989,
+        thumbnailHeight: 658
+    }
+]
+
+const image_six = [
+    {
+        src: img_six,
+        thumbnail: img_six,
+        thumbnailWidth: 991,
+        thumbnailHeight: 660
+    }
+]
+
+
+
 const AboutPage = () => {
     const [activeTab, setActiveTab] = useState('1');
     const [codeBlockOne, changeCodeBlockOne] = useState('vgg16 = VGG16(weights=\'imagenet\', include_top=False, input_shape=(128,128,3))\nmodel = Sequential()\nmodel.add(vgg16)\nmodel.add(Flatten())\nmodel.add(Dense(3, activation=\'sigmoid\'))\nmodel.compile(optimizer="adam", loss="categorical_crossentropy", metrics ="accuracy")\nes = EarlyStopping(monitor=\'val_loss\', patience=8, verbose=0, min_delta=0.001, mode=\'auto\')\nhistory = model.fit(train_generator, steps_per_epoch=4, validation_data=test_generator, validation_steps=4, epochs=400, callbacks=[es])');
+    const [codeBlockTwo, changeCodeBlockTwo] = useState('faces = detector.detect_faces(out_img)\nfor face in zip(faces):\n\t(x, y, w, h) = face[0][\'box\']\n\tpercent_cutoff_x = 0.15\n\tpercent_cutoff_y = 0.30\n\ty_top = int(max(y - (percent_cutoff_y * h), 0))\n\ty_bottom = int(y + h + (percent_cutoff_y * h))\n\tx_left = int(max(x - (percent_cutoff_x * w), 0))\n\tx_right = int(x + w + (percent_cutoff_x * w))\n\tface = out_img[y_top:y_bottom, x_left:x_right]\n\tclassification = classifyImage(face)');
+    const [codeBlockThree, changeCodeBlockThree] = useState('if (classification == \'Without Mask\'):\n\tcv2.rectangle(out_img, (x, y), (x + w, y + h), (255, 0, 0), BOX_THICKNESS)\n\tcv2.putText(out_img, \"NO MASK\", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)\nelif (classification == \'With Mask\'):\n\tcv2.rectangle(out_img, (x, y), (x + w, y + h), (0, 255, 0), BOX_THICKNESS)\n\tcv2.putText(out_img, \"MASK\", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)\nelse:\n\tnose = nose_cascade.detectMultiScale(face, scaleFactor=1.2, minNeighbors=6)\n\tmouth = mouth_cascade.detectMultiScale(face, scaleFactor=1.2, minNeighbors=6)\n\tnose_not_covered = False\n\tfor (nx, ny, nw, nh) in nose:\n\t\tnose_not_covered = True\n\t\tcv2.rectangle(face, (nx, ny), (nx + nw, ny + nh), (255, 0, 0), BOX_THICKNESS)\n\tmouth_not_covered = False\n\tfor (mx, my, mw, mh) in mouth:\n\t\tmouth_not_covered = True\n\t\tcv2.rectangle(face, (mx, my), (mx + mw, my + mh), (255, 0, 0), BOX_THICKNESS)\n\tresp = \"\"\n\tif nose_not_covered and mouth_not_covered:\n\t\tresp = \"NOSE, MOUTH\"\n\telif nose_not_covered or mouth_not_covered:\n\t\tresp = \"NOSE\" if nose_not_covered else \"MOUTH\"\n\tcv2.rectangle(out_img, (x, y), (x + w, y + h), (255, 165, 0), BOX_THICKNESS)\n\tcv2.putText(out_img, \"INCORRECT: \" + resp, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 165, 0), 2)');
 
     return (
         <div className="tabsWrapper">
@@ -212,23 +280,94 @@ const AboutPage = () => {
                         terms of accuracy to just crop out faces and feed that into our trained neural network. This network was designed to identify
                         features from the image of a single face and classify it into <b>one of three</b> distinct categories:
                         (a) face wearing mask, (b) face not wearing mask, and (c) face wearing mask incorrectly.
-                        <br></br>
-                        <br></br>
+                        <br />
+                        <br />
                         We first started with Haar Cascade for face detection, but we soon ran into issues. Haar Cascade does
                         not work well on faces with masks on them because they use other features to extract face coordinates. Those features
                         were being covered by the mask. It also requires
                         fine tuning some parameters. We were able to adjust them to work to a degree but it was not as robust as we would have hoped.
                         As a result, we ended up using <b>MTCNN</b> as it had much better performance in detecting faces. MTCNN uses a convolutional 
-                        neural network to detect faces and as a whole was more effective than Haar Cascade.
-                        <br></br>
-                        <br></br>
-                        Our first step then was detecting and getting coordinates for each face in an image with MTCNN and then 
-                        cropping them out individually. We then passed the cropped face to our trained neural network which would classify
+                        neural network to detect faces and as a whole was more effective than Haar Cascade. Here is the difference:
+                        <div className="galleryWrapper">
+                            <Row>
+                                <Col sm="5">
+                                    <Gallery
+                                        backdropClosesModal={true}
+                                        images={image_one}
+                                    />
+                                </Col>
+                                <Col sm="5">
+                                    <Gallery
+                                        backdropClosesModal={true}
+                                        images={image_two}
+                                    />
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col sm="5">
+                                    <Gallery
+                                        backdropClosesModal={true}
+                                        images={image_three}
+                                    />
+                                </Col>
+                                <Col sm="5">
+                                    <Gallery
+                                        backdropClosesModal={true}
+                                        images={image_four}
+                                    />
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col sm="5">
+                                    <Gallery
+                                        backdropClosesModal={true}
+                                        images={image_five}
+                                    />
+                                </Col>
+                                <Col sm="5">
+                                    <Gallery
+                                        backdropClosesModal={true}
+                                        images={image_six}
+                                    />
+                                </Col>
+                            </Row>
+                        </div>
+                        <br />
+                        <br />
+                        Here, the first column represents images used with MTCNN while the second column represents images used
+                        with haar cascade. Haar Cascade performed worse in all examples and incorrectly identified faces.
+                        After the switch to MTCNN, our first step then was detecting and getting coordinates for each face in an image with MTCNN and then
+                        cropping them out individually. Here is our code snippet that does that:
+                        <br />
+                        <CodeMirror
+                            value={codeBlockTwo}
+                            options={{
+                                mode: 'python',
+                                theme: 'duotone-light',
+                                tabSize: 4,
+                                keyMap: 'sublime',
+                                autoRefresh: true,
+                                lineNumbers: false
+                            }}
+                        />
+                        <br />
+                        We then passed the cropped face to our trained neural network which would classify
                         the image in one of the three groups as mentioned above. If an image was identified as an 'incorrectly worn mask'
                         we used Haar Cascade to detect noses and mouths. If a nose or mouth was detected, we would tell
                         the user that the mask was worn incorrectly because a nose or mouth was openly visible.
-                        <br></br>
-                        <br></br>
+                        <br />
+                        <CodeMirror
+                            value={codeBlockThree}
+                            options={{
+                                mode: 'python',
+                                theme: 'duotone-light',
+                                tabSize: 4,
+                                keyMap: 'sublime',
+                                autoRefresh: true,
+                                lineNumbers: false
+                            }}
+                        />
+                        <br />
                         To note, we did not want to use Haar Cascade for nose and mouth because it did not do too well in detecting noses or mouths
                         well either. We looked into using <a className="datalink" href="https://www.pyimagesearch.com/2017/04/10/detect-eyes-nose-lips-jaw-dlib-opencv-python/">dlib</a> but
                         that predicted where noses and mouths were located based on the bounding box for the face. The only other option

@@ -12,9 +12,9 @@
     "static/js/4.ffbb373a.chunk.js.map": "/MaskCV/static/js/4.ffbb373a.chunk.js.map",
     "static/js/5.830d4dc6.chunk.js": "/MaskCV/static/js/5.830d4dc6.chunk.js",
     "static/js/5.830d4dc6.chunk.js.map": "/MaskCV/static/js/5.830d4dc6.chunk.js.map",
-    "main.css": "/MaskCV/static/css/main.68c3dd14.chunk.css",
-    "main.js": "/MaskCV/static/js/main.c55f41b4.chunk.js",
-    "main.js.map": "/MaskCV/static/js/main.c55f41b4.chunk.js.map",
+    "main.css": "/MaskCV/static/css/main.7e33f9a0.chunk.css",
+    "main.js": "/MaskCV/static/js/main.72b3b710.chunk.js",
+    "main.js.map": "/MaskCV/static/js/main.72b3b710.chunk.js.map",
     "runtime-main.js": "/MaskCV/static/js/runtime-main.3ba1b8ef.js",
     "runtime-main.js.map": "/MaskCV/static/js/runtime-main.3ba1b8ef.js.map",
     "static/css/8.f91117bf.chunk.css": "/MaskCV/static/css/8.f91117bf.chunk.css",
@@ -252,7 +252,7 @@
     "static/js/123.c3a25f62.chunk.js.map": "/MaskCV/static/js/123.c3a25f62.chunk.js.map",
     "index.html": "/MaskCV/index.html",
     "static/css/8.f91117bf.chunk.css.map": "/MaskCV/static/css/8.f91117bf.chunk.css.map",
-    "static/css/main.68c3dd14.chunk.css.map": "/MaskCV/static/css/main.68c3dd14.chunk.css.map",
+    "static/css/main.7e33f9a0.chunk.css.map": "/MaskCV/static/css/main.7e33f9a0.chunk.css.map",
     "static/js/116.d8f707bb.chunk.js.LICENSE.txt": "/MaskCV/static/js/116.d8f707bb.chunk.js.LICENSE.txt",
     "static/js/8.1b1b05ce.chunk.js.LICENSE.txt": "/MaskCV/static/js/8.1b1b05ce.chunk.js.LICENSE.txt",
     "static/media/1.3bd9e7d6.png": "/MaskCV/static/media/1.3bd9e7d6.png",
@@ -293,7 +293,7 @@
     "static/js/runtime-main.3ba1b8ef.js",
     "static/css/8.f91117bf.chunk.css",
     "static/js/8.1b1b05ce.chunk.js",
-    "static/css/main.68c3dd14.chunk.css",
-    "static/js/main.c55f41b4.chunk.js"
+    "static/css/main.7e33f9a0.chunk.css",
+    "static/js/main.72b3b710.chunk.js"
   ]
 }

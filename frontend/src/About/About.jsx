@@ -288,7 +288,7 @@ const AboutPage = () => {
                         fine tuning some parameters. We were able to adjust them to work to a degree but it was not as robust as we would have hoped.
                         As a result, we ended up using <b>MTCNN</b> as it had much better performance in detecting faces. MTCNN uses a convolutional 
                         neural network to detect faces and as a whole was more effective than Haar Cascade. Here is the difference:
-                        <div className="galleryWrapper">
+                        <div className="galleryWrapperAbout">
                             <Row>
                                 <Col sm="5">
                                     <Gallery

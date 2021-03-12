@@ -4,6 +4,7 @@ import CreditsPage from './Credits/Credits';
 import AboutPage from './About/About';
 import ResultsPage from './Results/Results';
 import Navigation from './Navigation/Navigation';
+import VideoPage from './Video/Video';
 
  
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" exact component={HomePage} />
         <Route path="/Home" component={HomePage} />
         <Route path="/About" component={AboutPage} />
+        <Route path="/Video" component={VideoPage} />
         <Route path="/Results" component={ResultsPage} />
         <Route path="/Credits" component={CreditsPage} />
       </div>

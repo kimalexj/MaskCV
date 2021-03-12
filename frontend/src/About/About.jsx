@@ -96,9 +96,9 @@ const AboutPage = () => {
                                 <h4 className="tabSubheader">Breakdown:</h4>
                                     <ul className="listWrapper">
                                         <li className="listEntry">Face detection</li>
-                                        <li className="listEntry">Facial feature detection - (Are the mouth and nose fully covered?)</li>
                                         <li className="listEntry">Face mask detection - (Yes, no, or incorrect)</li>
-                                        <li className="listEntry">Data for training/testing - (Kaggle/Github) </li>
+                                        <li className="listEntry">Data for training/testing mask detection - (Kaggle/Github) </li>
+                                        <li className="listEntry">Facial feature detection - (Are the mouth and nose fully covered in incorrect case?)</li>
                                     </ul>
                                 <br />
                                 <h4 className="tabSubheader">Flow Diagram:</h4>

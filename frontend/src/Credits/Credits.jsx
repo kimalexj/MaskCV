@@ -27,14 +27,26 @@ const CreditsPage = () => {
                     
                 </Row>
                 <br />
-                <h3 className="creditSubheader">Preexisting Components:</h3>
+                <h3 className="creditSubheader">Previous Work:</h3>
                 <Row>
                     <Col>
                         <div className="creditWrapper">
                             <div className="bodyStyle">
+                                Backend
                                 <ul>
-                                    <li>VGG 16/19</li>
-                                    <li>Haar Cascade Feature Classifier</li>
+                                    <li>VGG 16/19 from the Keras library</li>
+                                    <li>Haar Cascade Feature Classifiers</li>
+                                    <li>Parameter modifications influenced from <a href="https://www.kaggle.com/andrewmvd/face-mask-detection/code">Kaggle notebooks</a></li>
+                                    <li>MTCNN Face Detection</li>
+                                </ul>
+                                Frontend
+                                <ul>
+                                    <li>Reactstrap</li>
+                                    <li>React-fade-in</li>
+                                    <li>React-grid-gallery</li>
+                                    <li>React-charts</li>
+                                    <li>codemirror</li>
+                                    <li>Images pulled from <a href='https://www.starpng.com/'>starpng</a></li>
                                 </ul>
                             </div>
                         </div>

@@ -239,16 +239,17 @@ const AboutPage = () => {
                         <br />
                         <br />
                         <h4 className="tabSubheader">Moving Forward:</h4>
-                        <p>Given more time, our next steps would involve improving upon our code's ability to extract facial features, specifically
-                        noses and mouths. Our current implementation, which utilizes Haar Cascade, was often flawed and unable to properly detect
-                        these features consistently. The proposed solution to this issue was to train separate models on new datasets
-                        to be able to classify noses and mouths. Ideally, this change would allow our code to more accurately define and display information
-                        regarding "Incorrect" mask usage.
+                        <p>Given more time, the next step for our project would involve improving upon our code's ability to extract facial features, specifically
+                        noses and mouths. Our current implementation, which utilizes Haar Cascade, is often flawed and results in many cases where these features
+                        are incorrectly detected. The proposed solution to this issue was to build new datasets for noses and mouths with the intent to train separate
+                        models capable of classifying them. Ideally, this change would decrease the amount of error in our detection and allow us to more accurately
+                        display information regarding "incorrect" mask usage.
                         <br></br>
                         <br></br>
-                        Beyond this, we could potentially expand upon how our code recognizes "Incorrect" mask usage to include steps as to how to correct it.
+                        Beyond this, having a more accurate method of feature extraction could allow us to provide more robust information to solve the problems regarding
+                        mask wearing. One idea was to expand upon how our code recognizes "Incorrect" masks by including and displaying steps to achieve "Correct" mask usage.
                         For instance, if a person was wearing a mask incorrectly, and our code was able to detect that a nose was not covered, it could provide
-                        a message such as "Pull mask over nose."
+                        a message such as "Pull mask over nose." Upon following these steps, a person would, in theory, be classified as wearing a mask "correctly".
                         </p>
                         <br />
                         <br />
